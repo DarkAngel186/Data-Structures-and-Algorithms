@@ -1,0 +1,29 @@
+#LeetCode 206 : Reverse Linked List
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        if(head == null) return null;
+        
+        else if(head.next == null) return head;
+        
+        else
+        {
+            ListNode prev = head;
+            ListNode temp = head.next;
+            head.next = null;
+            
+            while(temp != null)
+            {
+                ListNode pointer = temp.next;
+                temp.next = prev;
+                prev = temp;
+                temp = pointer;
+            }
+            
+            head = prev;
+        }
+        
+        return head;
+    }
+}
