@@ -1,1 +1,3 @@
 Git repo initialized successfully!!!
+
+Changed Username and email
