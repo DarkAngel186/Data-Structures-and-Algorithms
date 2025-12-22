@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms
-Leetcode Problem Solutions
+Leetcode and GFG Problem Solutions
