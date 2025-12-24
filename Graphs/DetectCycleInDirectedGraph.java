@@ -6,8 +6,12 @@ import java.util.ArrayList;
  */
 public class DetectCycleInDirectedGraph {
 
+    boolean[] mainVis;
+
     private boolean dfs(ArrayList<ArrayList<Integer>> graph, int src, boolean[] vis) {
         
+        mainVis[src] = true;
+
         if(vis[src]) return true;
         
         ArrayList<Integer> dests = graph.get(src);
@@ -25,6 +29,7 @@ public class DetectCycleInDirectedGraph {
     
     public boolean isCyclic(int V, int[][] edges) {
         
+        mainVis = new boolean[V];
         ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
         for(int i = 0; i < V; i++) graph.add(new ArrayList<>());
         
@@ -35,7 +40,7 @@ public class DetectCycleInDirectedGraph {
         
         for(int i = 0; i < V; i++) {
             
-            if(dfs(graph, i, new boolean[V])) return true;
+            if(!mainVis[i] && dfs(graph, i, new boolean[V])) return true;
         }
         
         return false;
